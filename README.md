@@ -1,15 +1,16 @@
 # Lumen
 
-A small public wall. Members write notes, keep them private, or mark them public. Public notes appear on the wall. Every UTC hour a featured note is chosen from whatever is public.
+A public wall of notes. Sign in, write privately, mark something public when you mean it. Every UTC hour a different public note is featured.
 
 ## Stack
-- Next.js
-- Supabase Auth + Postgres (`profiles`, `notes`)
+- Next.js 14
+- Supabase Auth + Postgres
+- Vercel
 
-## Run
-```bash
-npm install
+## Local
+```
+npm i
 npm run dev
 ```
 
-Create an account at `/login`, write in `/studio`, mark a note public, then watch `/`.
+Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` if you are not using the baked-in project.
