@@ -64,6 +64,7 @@ export default function HomePage() {
       <nav className="nav">
         <Link className="brand" href="/">Lumen<span>.</span></Link>
         <div className="nav-links">
+          <Link href="/editions">Editions</Link>
           <Link href="/studio">Studio</Link>
           {user ? <span>{user.email}</span> : <Link href="/login">Sign in</Link>}
         </div>
