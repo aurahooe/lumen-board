@@ -11,8 +11,8 @@ export default function EditionsPage() {
     const supabase = getBrowserClient();
     supabase
       .from("hourly_log")
-      .select("id,title,detail,hour_mark")
-      .order("hour_mark", { ascending: false })
+      .select("id,title,body,created_at")
+      .order("created_at", { ascending: false })
       .limit(48)
       .then(({ data }) => setRows(data || []));
   }, []);
@@ -39,9 +39,9 @@ export default function EditionsPage() {
           <div className="item" key={r.id} style={{ animation: `rise .5s ${0.03 * i}s ease both` }}>
             <div>
               <strong>{r.title}</strong>
-              <div className="meta">{r.detail}</div>
+              <div className="meta">{r.body}</div>
             </div>
-            <div className="meta">{r.hour_mark ? new Date(r.hour_mark).toUTCString().replace(":00 GMT", "h UTC") : ""}</div>
+            <div className="meta">{r.created_at ? new Date(r.created_at).toUTCString() : ""}</div>
           </div>
         ))}
       </div>
